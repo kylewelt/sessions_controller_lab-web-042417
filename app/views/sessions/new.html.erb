@@ -1,5 +1,11 @@
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <input name=name>
-  <input type=submit value='login'>
-<% end %>
+<% if !logged_in?.empty? %>
+  <p>You are already logged in</p>
+  <%= link_to "Return to home", root_url %>
+<% else %>
 
+  <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+    <input name=name>
+    <input type=submit value='login'>
+  <% end %>
+
+<% end %>
